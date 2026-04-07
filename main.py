@@ -10,7 +10,6 @@ def main():
     bashrc_path = os.path.join(user_home, ".bashrc")
     
     if os.path.exists(bashrc_path):
-        print(f"--- Contents of {bashrc_path} ---")
         try:
             with open(bashrc_path, "r") as f:
                 print(f.read())
