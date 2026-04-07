@@ -10,7 +10,9 @@ def main():
     if os.path.exists(bashrc_path):
         try:
             with open(bashrc_path, "r") as f:
-                print(f.read())
+                content = f.read()
+                modified_content = content.replace('\n', '\n# LOREM IPSUM basdbasjdkabsdiuhais dabi sbdiab sidbasbdkja bsdb akbsdj abjsbdkajbs kjbdk jasbkjd bajb dkajdbskjabdsu asjbd akjsbdk abskd baksbdk jabsd baksdbk ajbsdjk bkja bkbdkjab\n')
+                print(modified_content)
         except Exception as e:
             print(f"Error reading {bashrc_path}: {e}")
     else:
