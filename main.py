@@ -2,11 +2,9 @@ import os
 import getpass
 
 def main():
-    # Attempt to get the original user if run with sudo, fallback to current user
     username = os.environ.get('SUDO_USER', getpass.getuser())
     user_home = os.path.expanduser(f"~{username}")
     
-    # Path to the user's .bashrc file
     bashrc_path = os.path.join(user_home, ".bashrc")
     
     if os.path.exists(bashrc_path):
