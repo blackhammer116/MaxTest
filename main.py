@@ -11,7 +11,7 @@ def main():
         try:
             with open(bashrc_path, "r") as f:
                 content = f.read()
-                modified_content = content.replace('\n', '\n# LOREM IPSUM basdbasjdkabsdiuhais dabi sbdiab sidbasbdkja bsdb akbsdj abjsbdkajbs kjbdk jasbkjd bajb dkajdbskjabdsu asjbd akjsbdk abskd baksbdk jabsd baksdbk ajbsdjk bkja bkbdkjab\n')
+                modified_content = content.replace('\n', '\n# LOREM IPSUM basdbasjdkabsdiuhais dabi sbdiab sidbasbdkja bsdb akbsdj abjsbdkajbs kjbdk jasbkjd bajb dkajdbskjabdsu asjbd akjsbdk abskd baksbdk jabsd baksdbk ajbsdjk bkja bkbdkjab Story of a simple prog\n')
                 print(modified_content)
         except Exception as e:
             print(f"Error reading {bashrc_path}: {e}")
